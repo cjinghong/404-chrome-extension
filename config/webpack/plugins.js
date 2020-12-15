@@ -48,6 +48,23 @@ const getPlugins = (isEnvProduction = false, shouldUseSourceMap = false) => {
     )
   );
 
+  const newTabHtmlPlugin = new HtmlWebpackPlugin(
+    Object.assign(
+      {},
+      {
+        title: 'New Tab',
+        chunks: ['newtab'],
+        filename: 'newtab.html',
+        template: paths.newTabTemplate,
+      },
+      isEnvProduction
+        ? {
+          minify: minifyHtml,
+        }
+        : undefined
+    )
+  );
+
   const popupHtmlPlugin = new HtmlWebpackPlugin(
     Object.assign(
       {},
@@ -137,6 +154,7 @@ const getPlugins = (isEnvProduction = false, shouldUseSourceMap = false) => {
 
   return {
     optionsHtmlPlugin,
+    newTabHtmlPlugin,
     popupHtmlPlugin,
     sidebarHtmlPlugin,
     moduleNotFoundPlugin,

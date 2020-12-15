@@ -12,6 +12,8 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 
 const doesOptionsExist = fs.existsSync(paths.appOptionsJs);
 const doesOptionsHtmlExist = fs.existsSync(paths.optionsTemplate);
+const doesNewTabExist = fs.existsSync(paths.appNewTabJs);
+const doesNewTabHtmlExist = fs.existsSync(paths.newTabTemplate);
 const doesPopupExist = fs.existsSync(paths.appPopupJs);
 const doesPopupHtmlExist = fs.existsSync(paths.popupTemplate);
 const doesSidebarExist = fs.existsSync(paths.appSidebarJs);
@@ -40,6 +42,7 @@ module.exports = function (webpackEnv) {
     doesContentExist && { 'content': paths.appContentJs },
     doesSidebarExist && { 'sidebar': paths.appSidebarJs },
     doesOptionsExist && { 'options': paths.appOptionsJs },
+    doesNewTabExist && { 'newTab': paths.appNewTabJs },
   ].filter(Boolean);
 
   const entry = {};

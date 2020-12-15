@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "manifest_version": 2,
-  "name": "React Boilerplate Extension",
-  "description": "Modern React boilerplate for Firefox and Chrome extensions.",
+  "name": "404 New Tab",
+  "description": "Interesting 404 pages as new tab",
   "content_scripts": [
     {
       "matches": [
@@ -43,5 +43,8 @@
   "options_ui": {
     "page": "./options.html",
     "open_in_tab": true
+  },
+  "chrome_url_overrides" : {
+    "newtab": "newtab.html"
   }
 }
