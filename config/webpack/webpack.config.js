@@ -21,9 +21,7 @@ const doesSidebarHtmlExist = fs.existsSync(paths.sidebarTemplate);
 const doesBackgroundExist = fs.existsSync(paths.appBackgroundJs);
 const doesContentExist = fs.existsSync(paths.appContentJs);
 
-
-
-module.exports = function (webpackEnv) {
+module.exports = (webpackEnv) => {
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
@@ -32,21 +30,26 @@ module.exports = function (webpackEnv) {
     : isEnvDevelopment && '/';
   const shouldUseRelativeAssetPaths = publicPath === './';
 
-  const loaders = initLoaders(isEnvProduction, isEnvDevelopment, shouldUseRelativeAssetPaths, shouldUseSourceMap);
+  const loaders = initLoaders(
+    isEnvProduction,
+    isEnvDevelopment,
+    shouldUseRelativeAssetPaths,
+    shouldUseSourceMap,
+  );
   const plugins = initPlugins(isEnvProduction, shouldUseSourceMap);
 
   // named entry cannot be stored in an array and has to be stored inside an object
   const entryArray = [
-    doesBackgroundExist && { 'background': paths.appBackgroundJs },
-    doesPopupExist && { 'popup': paths.appPopupJs },
-    doesContentExist && { 'content': paths.appContentJs },
-    doesSidebarExist && { 'sidebar': paths.appSidebarJs },
-    doesOptionsExist && { 'options': paths.appOptionsJs },
-    doesNewTabExist && { 'newTab': paths.appNewTabJs },
+    doesBackgroundExist && { background: paths.appBackgroundJs },
+    doesPopupExist && { popup: paths.appPopupJs },
+    doesContentExist && { content: paths.appContentJs },
+    doesSidebarExist && { sidebar: paths.appSidebarJs },
+    doesOptionsExist && { options: paths.appOptionsJs },
+    doesNewTabExist && { newtab: paths.appNewTabJs },
   ].filter(Boolean);
 
   const entry = {};
-  entryArray.forEach(obj => { Object.assign(entry, obj); });
+  entryArray.forEach((obj) => { Object.assign(entry, obj); });
 
   return {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
@@ -60,26 +63,26 @@ module.exports = function (webpackEnv) {
       // pathinfo: isEnvDevelopment,
       filename: '[name].js',
       devtoolModuleFilenameTemplate: isEnvProduction
-        ? info => path
+        ? (info) => path
           .relative(paths.appSrc, info.absoluteResourcePath)
           .replace(/\\/g, '/')
-        : isEnvDevelopment &&
-        (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+        : isEnvDevelopment
+        && ((info) => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
     },
     optimization: {
       minimize: isEnvProduction,
       minimizer: [
         plugins.terserPlugin,
         plugins.optimizeCSSAssetsPlugin,
-      ]
+      ],
     },
     resolve: {
       modules: ['node_modules'].concat(
-        process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
+        process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
       ),
       extensions: paths.moduleFileExtensions
-        .map(ext => `.${ext}`)
-        .filter(ext => useTypeScript || !ext.includes('ts')),
+        .map((ext) => `.${ext}`)
+        .filter((ext) => useTypeScript || !ext.includes('ts')),
       plugins: [
         PnpWebpackPlugin,
         plugins.moduleScopePlugin,
@@ -96,15 +99,16 @@ module.exports = function (webpackEnv) {
         { parser: { requireEnsure: false } },
         loaders.eslintLoader,
         {
-          // "oneOf" will traverse all following loaders until one will match the requirements. 
-          // When no loader matches it will fall back to the "file" loader at the end of the loader list.
+          // "oneOf" will traverse all following loaders until one will match the requirements.
+          // When no loader matches it will fall back to the "file" loader
+          // at the end of the loader list.
           oneOf: [
             loaders.urlLoader,
             loaders.insideBabelLoader,
             loaders.outsideBabelLoader,
             loaders.styleLoader,
             loaders.cssModuleLoader,
-            loaders.fileLoader
+            loaders.fileLoader,
             // ** STOP ** Are you adding a new loader?
             // Make sure to add the new loader(s) before the "file" loader.
           ],
@@ -116,6 +120,7 @@ module.exports = function (webpackEnv) {
       doesOptionsHtmlExist && plugins.optionsHtmlPlugin,
       doesPopupHtmlExist && plugins.popupHtmlPlugin,
       doesSidebarHtmlExist && plugins.sidebarHtmlPlugin,
+      doesNewTabHtmlExist && plugins.newTabHtmlPlugin,
       plugins.htmlIncAssetsPlugin,
       plugins.moduleNotFoundPlugin,
       isEnvDevelopment && plugins.CaseSensitivePathsPlugin,

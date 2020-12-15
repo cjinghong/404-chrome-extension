@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '@polymer/paper-button/paper-button.js';
+import '@polymer/paper-button/paper-button';
 
 import './NewTab.css';
 
-class Options extends Component {
+class NewTab extends Component {
   render() {
     return (
       <div className="App">
@@ -16,7 +16,7 @@ class Options extends Component {
           >
             Learn React
           </a>
-          <h1>Options</h1>
+          <h1>New Tab</h1>
           <paper-button toggles raised class="green">toggles</paper-button>
         </header>
       </div>
@@ -24,4 +24,4 @@ class Options extends Component {
   }
 }
 
-export default Options;
+export default NewTab;
