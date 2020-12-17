@@ -8,4 +8,5 @@
 .input-overlay {
   position: absolute;
   top: 20vh;
+  z-index: 999;
 }
