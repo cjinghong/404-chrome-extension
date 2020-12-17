@@ -10,7 +10,6 @@ const WebpackDevServer = require('webpack-dev-server');
 const webpackConfigFactory = require('../config/webpack/webpack.config');
 const createDevServerConfig = require('../config/webpack/webpackDevServer.config');
 
-
 const webpackConfig = webpackConfigFactory('development');
 
 const compiler = webpack(webpackConfig);

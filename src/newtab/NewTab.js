@@ -2,23 +2,21 @@ import React, { Component } from 'react';
 import '@polymer/paper-button/paper-button';
 
 import './NewTab.css';
+import randomTemplate from './templates/random-template';
 
 class NewTab extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      template: randomTemplate(),
+    };
+  }
+
   render() {
+    const { template } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          <h1>New Tab</h1>
-          <paper-button toggles raised class="green">toggles</paper-button>
-        </header>
+        {{ template }}
       </div>
     );
   }
