@@ -72,7 +72,6 @@
     "eslint-plugin-flowtype": "2.50.1",
     "execa": "^1.0.0",
     "file-loader": "2.0.0",
-    "framer-motion": "^3.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "7.0.0",
     "html-loader": "^0.5.5",

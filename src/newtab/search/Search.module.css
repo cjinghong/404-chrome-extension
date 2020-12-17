@@ -49,13 +49,19 @@
 	height: 60px;
 	
 	position: absolute;
-	right: -40px;
+	right: -35px;
 	z-index: -1;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+
+	outline: none;
+}
+
+.show-hide-tab:hover {
+	cursor: pointer;
 }
 
 .show-hide-tab.dark {
