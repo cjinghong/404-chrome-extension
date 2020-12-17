@@ -4,3 +4,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.input-overlay {
+  position: absolute;
+  top: 20vh;
+}

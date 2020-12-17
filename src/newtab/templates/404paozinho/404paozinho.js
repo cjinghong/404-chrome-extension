@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '@polymer/paper-button/paper-button';
 import './index.css';
 
-class paozinho extends Component {
+class Paozinho extends Component {
   render() {
     return (
       <div className="main">
@@ -97,4 +97,4 @@ class paozinho extends Component {
   }
 }
 
-export default paozinho;
+export default Paozinho;
