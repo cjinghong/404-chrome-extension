@@ -8,16 +8,21 @@ import randomTemplate from './templates/random-template';
 class NewTab extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      template: randomTemplate(),
-    };
 
     this.regenerateTemplate = this.regenerateTemplate.bind(this);
+    this.state = {
+      template: randomTemplate(this.regenerateTemplate),
+    };
   }
 
   regenerateTemplate() {
+    let template = randomTemplate(this.regenerateTemplate);
+    while (template.id === this.state.template.id) {
+      template = randomTemplate(this.regenerateTemplate);
+    }
+
     this.setState({
-      template: randomTemplate(),
+      template,
     });
   }
 

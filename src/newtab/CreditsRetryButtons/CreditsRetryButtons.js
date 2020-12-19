@@ -61,7 +61,8 @@ class CreditsRetryButtons extends Component {
           role="button"
           onClick={this.onRetryClick}
         >
-          <Lottie
+          <img src="/img/random.png" width={40} alt="random 404 page" />
+          {/* <Lottie
             ref={(lottieView) => { this.lottieView = lottieView; }}
             options={defaultOptions}
             height={130}
@@ -77,7 +78,7 @@ class CreditsRetryButtons extends Component {
                 },
               },
             ]}
-          />
+          /> */}
         </div>
       </div>
     );
