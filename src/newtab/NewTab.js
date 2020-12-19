@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import './NewTab.css';
-import Search from './search/Search';
+
+import CreditsRetryButtons from './CreditsRetryButtons/CreditsRetryButtons';
 import randomTemplate from './templates/random-template';
 
 class NewTab extends Component {
@@ -10,15 +11,26 @@ class NewTab extends Component {
     this.state = {
       template: randomTemplate(),
     };
+
+    this.regenerateTemplate = this.regenerateTemplate.bind(this);
+  }
+
+  regenerateTemplate() {
+    this.setState({
+      template: randomTemplate(),
+    });
   }
 
   render() {
     const { template } = this.state;
+    const { credits } = template;
+
     return (
       <div className="App">
-        <div className="input-overlay">
+        <CreditsRetryButtons credits={credits} onRetry={this.regenerateTemplate} />
+        {/* <div className="input-overlay">
           <Search />
-        </div>
+        </div> */}
         { template.component }
       </div>
     );

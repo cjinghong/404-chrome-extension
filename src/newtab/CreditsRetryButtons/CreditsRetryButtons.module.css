@@ -1,0 +1,60 @@
+.container {
+  position: absolute;
+  top: 0;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: medium;
+  font-weight: 600;
+  overflow: visible;
+  height: 80px;
+  z-index: 999;
+}
+
+.creditsContainer {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  color: white;
+}
+
+.creditsContainer a {
+  text-decoration: underline;
+}
+
+/* unvisited link */
+.creditsContainer a:link {
+  color: white;
+}
+
+/* visited link */
+.creditsContainer a:visited {
+  color: white;
+}
+
+/* mouse over link */
+.creditsContainer a:hover {
+  color: white;
+}
+
+/* selected link */
+.creditsContainer a:active {
+  color: white;
+}
+
+.randomButton {
+  transition: all .2s ease-in-out;
+  position: relative;
+  /* animation: randomButtonHint 0.2s ease-in 0 1; */
+  animation: mymove 1s;
+}
+
+.randomButton:hover {
+  transform: scale(0.8);
+  cursor: pointer;
+}
+@keyframes mymove {
+  from {top: -400px;}
+  to {top: 0px;}
+}
