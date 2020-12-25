@@ -4,6 +4,12 @@ import Dave from './Dave/Dave';
 import BSOD from './BSOD/BSOD';
 import GalaxyNotFound from './GalaxyNotFound/GalaxyNotFound';
 import Caveman from './Caveman/Caveman';
+import Mars from './Mars/Mars';
+import CuteGhost from './CuteGhost/CuteGhost';
+import Bicycle from './Bicycle/Bicycle';
+import RollingBox from './RollingBox/RollingBox';
+import Tractor from './Tractor/Tractor';
+import SpaceWindow from './SpaceWindow/SpaceWindow';
 
 export default (onRandom404) => {
   const templates = [
@@ -45,6 +51,54 @@ export default (onRandom404) => {
       credits: {
         author: 'Sergio',
         url: 'https://codepen.io/SofiaSergio/pen/RMjyRL#',
+      },
+    },
+    {
+      id: 5,
+      component: <Mars onRandom404={onRandom404} />,
+      credits: {
+        author: 'Asyraf Hussin',
+        url: 'https://codepen.io/AsyrafHussin/pen/KxWRrK',
+      },
+    },
+    {
+      id: 6,
+      component: <CuteGhost onRandom404={onRandom404} />,
+      credits: {
+        author: 'Julie Park',
+        url: 'https://codepen.io/juliepark/pen/erOoeZ',
+      },
+    },
+    {
+      id: 7,
+      component: <Bicycle />,
+      credits: {
+        author: 'Volodymyr Hashenko',
+        url: 'https://codepen.io/gxash/pen/rrJYwm',
+      },
+    },
+    {
+      id: 8,
+      component: <RollingBox />,
+      credits: {
+        author: 'Yusuke Nakaya',
+        url: 'https://codepen.io/YusukeNakaya/pen/YLPVER',
+      },
+    },
+    {
+      id: 9,
+      component: <Tractor />,
+      credits: {
+        author: 'Nick Soltis',
+        url: 'https://codepen.io/nss5161/pen/pGLqor',
+      },
+    },
+    {
+      id: 10,
+      component: <SpaceWindow />,
+      credits: {
+        author: 'Keith',
+        url: 'https://codepen.io/KeithPaul/pen/zYGeema',
       },
     },
   ];

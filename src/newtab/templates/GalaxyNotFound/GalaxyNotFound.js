@@ -9,7 +9,6 @@ class GalaxyNotFound extends Component {
         {text}
       </span>
     ));
-    console.log(particles);
     return particles;
   }
 
