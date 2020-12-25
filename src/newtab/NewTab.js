@@ -16,14 +16,7 @@ class NewTab extends Component {
   }
 
   regenerateTemplate() {
-    let template = randomTemplate(this.regenerateTemplate);
-    while (template.id === this.state.template.id) {
-      template = randomTemplate(this.regenerateTemplate);
-    }
-
-    this.setState({
-      template,
-    });
+    document.location.reload();
   }
 
   render() {
