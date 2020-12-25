@@ -3,17 +3,6 @@
   "manifest_version": 2,
   "name": "404 New Tab",
   "description": "Interesting 404 pages as new tab",
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "lib/js/browser-polyfill.js",
-        "content.js"
-      ]
-    }
-  ],
   "background": {
     "scripts": [
       "lib/js/browser-polyfill.js",
