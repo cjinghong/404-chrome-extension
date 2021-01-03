@@ -1,6 +1,6 @@
 {
   "name": "404-new-tab",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Shows an interesting 404 page on new tab",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
