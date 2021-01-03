@@ -10,6 +10,11 @@ import Bicycle from './Bicycle/Bicycle';
 import RollingBox from './RollingBox/RollingBox';
 import Tractor from './Tractor/Tractor';
 import SpaceWindow from './SpaceWindow/SpaceWindow';
+import NoSignal from './NoSignal/NoSignal';
+import Smiley from './Smiley/Smiley';
+import TextAnim from './TextAnim/TextAnim';
+import SadMac from './SadMac/SadMac';
+import Train from './Train/Train';
 
 export default (onRandom404) => {
   const templates = [
@@ -99,6 +104,46 @@ export default (onRandom404) => {
       credits: {
         author: 'Keith',
         url: 'https://codepen.io/KeithPaul/pen/zYGeema',
+      },
+    },
+    {
+      id: 11,
+      component: <NoSignal />,
+      credits: {
+        author: 'Kay Pooma',
+        url: 'https://codepen.io/kaypooma/pen/ehfjC',
+      },
+    },
+    {
+      id: 12,
+      component: <Smiley />,
+      credits: {
+        author: 'Arman Azizpour',
+        url: 'https://codepen.io/arman_bag/pen/GbMGVG',
+      },
+    },
+    {
+      id: 13,
+      component: <TextAnim />,
+      credits: {
+        author: 'Ricardo Prieto',
+        url: 'https://codepen.io/ricardpriet/pen/MOKEam',
+      },
+    },
+    {
+      id: 14,
+      component: <SadMac />,
+      credits: {
+        author: 'Jon Kantner',
+        url: 'https://codepen.io/jkantner/pen/aPLWJm',
+      },
+    },
+    {
+      id: 15,
+      component: <Train />,
+      credits: {
+        author: 'Carla',
+        url: 'https://codepen.io/ckroll17',
       },
     },
   ];

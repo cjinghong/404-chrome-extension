@@ -28,7 +28,7 @@
 	background: #ededed;
 	border: 1px solid #bfc0c0;
 	border-bottom: none;
-	animation: float 2s ease-out infinite;
+	animation: floatGhost 2s ease-out infinite;
 }
 
 .cute-ghost-template .ghost-copy {
@@ -41,7 +41,7 @@
 	background: #ededed;
 	border: 1px solid #bfc0c0;
 	border-bottom: none;
-	animation: float 2s ease-out infinite;
+	animation: floatGhost 2s ease-out infinite;
 	z-index: 0;
 }
 
@@ -140,7 +140,7 @@
 	}
 }
 
-@keyframes float {
+@keyframes floatGhost {
 	50% {
 		transform: translateY(15px);
 	}
