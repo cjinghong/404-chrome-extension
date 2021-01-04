@@ -4,6 +4,7 @@ import './NewTab.css';
 
 import CreditsRetryButtons from './CreditsRetryButtons/CreditsRetryButtons';
 import randomTemplate from './templates/random-template';
+import Footer from './Footer/Footer';
 
 class NewTab extends Component {
   constructor(props) {
@@ -30,6 +31,8 @@ class NewTab extends Component {
           <Search />
         </div> */}
         { template.component }
+
+        <Footer />
       </div>
     );
   }
