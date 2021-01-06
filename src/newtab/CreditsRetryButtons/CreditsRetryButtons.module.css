@@ -43,11 +43,28 @@
   color: white;
 }
 
+.buttonsContainer {
+  display: flex;
+}
+
 .randomButton {
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 22.5px;
+  margin-left: 16px;
   transition: all .2s ease-in-out;
   position: relative;
-  /* animation: randomButtonHint 0.2s ease-in 0 1; */
   animation: mymove 1s;
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+}
+
+.randomButton:focus {
+  outline:0;
 }
 
 .randomButton:hover {

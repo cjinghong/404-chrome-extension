@@ -1,44 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Lottie from 'react-lottie';
-import randomAnimation from '../../lotties/random.json';
+import Rodal from 'rodal';
 
+// include styles
+import 'rodal/lib/rodal.css';
 import styles from './CreditsRetryButtons.module.css';
-
-const defaultOptions = {
-  loop: false,
-  autoplay: false,
-  animationData: randomAnimation,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-};
 
 class CreditsRetryButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startAnimation: false,
+      modalVisible: true,
     };
 
-    this.onRandomAnimation = this.onRandomAnimation.bind(this);
     this.onRetryClick = this.onRetryClick.bind(this);
+    this.onOpenModal = this.onOpenModal.bind(this);
+    this.onCloseModal = this.onCloseModal.bind(this);
   }
 
   onRetryClick() {
     const { onRetry } = this.props;
-    this.onRandomAnimation();
     onRetry();
   }
 
-  onRandomAnimation() {
+  onOpenModal() {
     this.setState({
-      startAnimation: true,
+      modalVisible: true,
+    });
+  }
+
+  onCloseModal() {
+    this.setState({
+      modalVisible: false,
     });
   }
 
   render() {
-    const { startAnimation } = this.state;
+    const { modalVisible } = this.state;
     const { credits } = this.props;
     const { author, url } = credits || {};
 
@@ -46,8 +44,11 @@ class CreditsRetryButtons extends Component {
 
     return (
       <div className={styles.container}>
+        <Rodal visible={modalVisible} onClose={this.onCloseModal}>
+          <div>Content</div>
+        </Rodal>
         <div className={styles.creditsContainer}>
-          { hasCreditsAuthor && (
+          {hasCreditsAuthor && (
             <>
               <div>Credits:</div>
               <a href={url || '#'} target="_blank" rel="noreferrer">
@@ -56,29 +57,21 @@ class CreditsRetryButtons extends Component {
             </>
           )}
         </div>
-        <div
-          className={styles.randomButton}
-          role="button"
-          onClick={this.onRetryClick}
-        >
-          <img src="/img/random.png" width={40} alt="random 404 page" />
-          {/* <Lottie
-            ref={(lottieView) => { this.lottieView = lottieView; }}
-            options={defaultOptions}
-            height={130}
-            width={130}
-            isStopped={!startAnimation}
-            eventListeners={[
-              {
-                eventName: 'complete',
-                callback: () => {
-                  this.setState({
-                    startAnimation: false,
-                  });
-                },
-              },
-            ]}
-          /> */}
+        <div className={styles.buttonsContainer}>
+          <button
+            type="button"
+            className={styles.randomButton}
+            onClick={this.onRetryClick}
+          >
+            <i className="fa fa-sync" />
+          </button>
+          <button
+            type="button"
+            className={styles.randomButton}
+            onClick={this.onOpenModal}
+          >
+            <i className="fa fa-plus" />
+          </button>
         </div>
       </div>
     );
