@@ -44,9 +44,9 @@ class CreditsRetryButtons extends Component {
 
     return (
       <div className={styles.container}>
-        <Rodal visible={modalVisible} onClose={this.onCloseModal}>
+        {/* <Rodal visible={modalVisible} onClose={this.onCloseModal}>
           <div>Content</div>
-        </Rodal>
+        </Rodal> */}
         <div className={styles.creditsContainer}>
           {hasCreditsAuthor && (
             <>
@@ -63,15 +63,15 @@ class CreditsRetryButtons extends Component {
             className={styles.randomButton}
             onClick={this.onRetryClick}
           >
-            <i className="fa fa-sync" />
+            <img src="/img/icons/sync.svg" alt="more 404" />
           </button>
-          <button
+          {/* <button
             type="button"
             className={styles.randomButton}
             onClick={this.onOpenModal}
           >
             <i className="fa fa-plus" />
-          </button>
+          </button> */}
         </div>
       </div>
     );

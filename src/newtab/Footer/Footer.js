@@ -6,7 +6,7 @@ class Footer extends Component {
     return (
       <div className={styles.container}>
         <a href="https://twitter.com/cjinghong">
-          <i className="fa fa-twitter" />
+          <img src="/img/icons/twitter.svg" alt="twitter logo" />
         </a>
       </div>
     );

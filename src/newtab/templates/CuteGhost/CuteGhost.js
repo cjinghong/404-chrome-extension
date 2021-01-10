@@ -34,7 +34,7 @@ class CuteGhost extends Component {
           <form className="search">
             <input type="text" className="search-bar" placeholder="Search" />
             <button type="submit" className="search-btn">
-              <i className="fa fa-search" />
+              <img src="/img/icons/search.svg" alt="search" />
             </button>
           </form>
           <div className="buttons">
